@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../main-menu/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="title section-center">
+        <div class="title-icons-container">
+            <img class="title-icons" src="../Recources/X.png" alt="X">
+            <img class="title-icons" src="../Recources/O.png" alt="O">
+        </div>
+    </section>
+    <section class="pick-mark section-center">
+        <article class="pick-mark-container">
+            <h1 class="pick-mark-title">PLAYER 1: PICK MARK</h1>
+            <div class="slider-container">
+                <div class="slider-options-container">
+                    <!-- IMAGE X -->
+                    <div id="slider-option-x" class="slider-img-container not-picked-option">
+                        <img class="slider-img-x" id="slider-img-x" src="" alt="">
+                    </div>
+                    <!-- END OF IMAGE X -->
+                    <!-- IMAGE O -->
+                    <div id="slider-option-o" class="slider-img-container picked-option">
+                        <img class="slider-img-o" id="slider-img-o" src="../Recources/O-darkgray.png" alt="">
+                    </div>
+                    <!-- END OF IMAGE O -->
+                </div>
+            </div>
+            <h2 class="pick-mark-reminder">REMEMBER - X GOES FIRST</h2>
+        </article>
+    </section>
+    <section class="pick-cpu-or-player section-center"></section>
+    <script src="../main-menu/app.js"></script>
+</body>
+</html>

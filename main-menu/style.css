@@ -1,0 +1,123 @@
+:root {
+  --clr-background: #192a32;
+  --clr-tiles: #1f3540;
+  --clr-font: #a8bec9;
+  --clr-font-2: #718c9a;
+  --clr-player-o-light: #f2b138;
+  --clr-player-o-dark: #f29e38;
+  --clr-player-x-light: #31c3be;
+  --clr-player-x-dark: #108c89;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #192a32;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Code Pro', monospace;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.25rem;
+  color: var(--clr-font);
+}
+
+h2 {
+  font-size: 1rem;
+  color: var(--clr-font-2);
+}
+
+img {
+  /* height: 100%; */
+  height: 100%;
+}
+
+.section-center {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 325px;
+}
+
+/* 
+TITLE ==========================================
+*/
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-icons {
+  max-height: 50px;
+  margin-bottom: 1.5rem;
+}
+
+/* 
+PICK MARK ======================================
+*/
+
+.pick-mark-container {
+  width: 100%;
+  background-color: var(--clr-tiles);
+  border-radius: 18px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.slider-img-container {
+  height: 50px;
+  width: 100%;
+}
+
+.slider-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.slider-options-container {
+  background-color: var(--clr-background);
+  height: 65px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.3s linear;
+}
+
+.slider-img-o {
+  z-index: 2;
+}
+
+#slider-img-x {
+  z-index: 2;
+  opacity: 1;
+}
+
+.not-picked-option {
+  /* background-color: var(--clr-font); */
+  background-color: var(--clr-background);
+  border-radius: 8px;
+  margin: 10px;
+  /* opacity: 0; */
+}
+
+.picked-option {
+  background-color: var(--clr-font);
+  /* background-color: var(--clr-background); */
+  border-radius: 8px;
+  margin: 10px;
+  /* opacity: 0; */
+}
