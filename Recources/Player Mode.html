@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://127.0.0.1:5503/vsPlayer/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Player Mode_files/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Player Mode_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Player Mode_files/all.min.css">
+    <title>Player Mode</title>
+</head>
+<body style="height: 1249px;" data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed=""><div id="StayFocusd-infobar" style="display:none;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+    <main>
+        <section class="section-center top">
+            <div class="top-container">
+                <div class="icons-container">
+                    <img src="./Player Mode_files/X.png" alt="X">
+                    <img id="top-icon-o" src="./Player Mode_files/O.png" alt="O">
+                </div>
+                <div class="turn">
+                    <img id="indicator" class="current-turn-icon" src="./Player Mode_files/X-lightgray.png" alt="">
+                    <h2>TURN</h2>
+                </div>
+                <div id="restart" class="restart-btn-container">
+                    <div class="restart-btn">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-center game">
+            <div class="board-container">
+                <div id="0" class="board-square">
+                </div>
+                <div id="1" class="board-square">
+                </div>
+                <div id="2" class="board-square">
+                </div>
+                <div id="3" class="board-square">
+                </div>
+                <div id="4" class="board-square">
+                </div>
+                <div id="5" class="board-square">
+                </div>
+                <div id="6" class="board-square">
+                </div>
+                <div id="7" class="board-square">
+                </div>
+                <div id="8" class="board-square">
+                </div>
+            </div>
+        </section>
+        <section class="section-center score">
+            <div class="score-tile p1">
+                <h2 class="score-title current-score">X(P1)</h2>
+                <h3 class="current-score">14</h3>
+            </div>
+            <div class="score-tile tie">
+                <h2 class="score-title current-score">X(P1)</h2>
+                <h3 class="current-score">14</h3>
+            </div>
+            <div class="score-tile p2">
+                <h2 class="score-title current-score">X(P1)</h2>
+                <h3 class="current-score">14</h3>
+            </div>
+        </section>
+        <!-- <h1>PLAYER</h1> -->
+        <a class="back-to-main section-center" href="http://127.0.0.1:5503/index.html">MAIN MENU</a>
+    </main>
+    <script src="./Player Mode_files/app.js"></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
