@@ -154,6 +154,10 @@ function checkWin (arrayOfSquares, state){
     })
 }
 
+function checkDraw (){
+    return Array.from(boardSquares).every(square => square.classList.contains('used-square'))
+}
+
 // Mark a square
 boardSquares.forEach(square => {
     const markMoveX = document.createElement('img')
@@ -180,15 +184,21 @@ boardSquares.forEach(square => {
             }
         
         changeTurnIndicator(currentPlayer)
-        if(checkWin(boardSquares, currentPlayer)){
-            if(currentPlayer == 'x'){
-                alert('o wins')
-            } else if(currentPlayer = 'o'){
-                alert('x wins');
+
+        if(!checkDraw()){
+            if(checkWin(boardSquares, currentPlayer)){
+                if(currentPlayer == 'x'){
+                    alert('o wins')
+                } else if(currentPlayer = 'o'){
+                    alert('x wins');
+                }
             }
+        } else {
+            alert('draw')
         }
 
-        
+        checkDraw()
+        console.log(checkDraw());
         console.log(availableSquares);
     })
     
