@@ -39,6 +39,8 @@ function resetHeight(){
 }
 window.addEventListener("resize", resetHeight);
 
+window.addEventListener('DOMContentLoaded', resetHeight)
+
 resetHeight();
 
 // Slider
