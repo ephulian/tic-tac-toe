@@ -128,6 +128,7 @@ boardSquares.forEach(square => {
     const markMoveX = document.createElement('img')
     markMoveX.classList.add('board-square-img')
     markMoveX.src = '../Recources/X.png'
+
     const markMoveO = document.createElement('img')
     markMoveO.classList.add('board-square-img')
     markMoveO.src = '../Recources/O.png'
@@ -150,9 +151,9 @@ boardSquares.forEach(square => {
     })
 })
 
-restartBtn.addEventListener('click', () => {
-    boardSquares.forEach(square => {
-        square.classList.remove('used-square')
-        square.removeChild()
-    })
-})
+// restartBtn.addEventListener('click', () => {
+//     boardSquares.forEach(square => {
+//         square.classList.remove('used-square')
+//         square.removeChild()
+//     })
+// })
