@@ -1,3 +1,5 @@
+const body = document.querySelector('body')
+
 const sliderImgX = document.querySelector('#slider-img-x')
 const sliderImgO = document.querySelector('#slider-img-o')
 
@@ -13,16 +15,36 @@ const startbtnLink = document.getElementById('start-btn-link')
 
 const allBtns = document.querySelectorAll('.btn')
 
+const test = document.querySelector('#test') //?
+
+
 let currentOption = 'X'
 let opponentType;
 let newGameState;
 
 const images = {
-    lightGrayX: '../Recources/X-lightgray.png',
-    lightGrayO: '../Recources/O-lightgray.png',
-    darkGrayX: '../Recources/X-darkgray.png',
-    darkGrayO: '../Recources/O-darkgray.png', 
+    lightGrayX: './Recources/X-lightgray.png',
+    lightGrayO: './Recources/O-lightgray.png',
+    darkGrayX: './Recources/X-darkgray.png',
+    darkGrayO: './Recources/O-darkgray.png', 
 }
+
+// window.addEventListener('DOMContentLoaded', () => {
+//     body.style.height = window.innerHeight + 'px'
+//     console.log(body.style);
+//     console.log(window.innerHeight);
+// })
+
+// window.addEventListener('resize', )
+
+function resetHeight(){
+    document.body.style.height = window.innerHeight + "px";
+}
+window.addEventListener("resize", resetHeight);
+
+window.addEventListener('popstate', resetHeight)
+
+resetHeight();
 
 // Slider
 sliderOptions.forEach(option => {
@@ -67,13 +89,13 @@ allBtns.forEach(btn => {
         }
 
         if(currentOption && newGameState == 'cpu'){
-            startbtnLink.setAttribute('href', '../vsCPU/index.html')
+            startbtnLink.setAttribute('href', './vsCPU/index.html')
             // startbtn.style.display = 'block'
             startbtn.style.opacity = 1;
         } else if(currentOption && newGameState == 'player') {
             // startbtn.style.display = 'block'
             startbtn.style.opacity = 1;
-            startbtnLink.setAttribute('href', '../vsPlayer/index.html')
+            startbtnLink.setAttribute('href', './vsPlayer/index.html')
         }
 
         // if(currentOption && newGameState){
@@ -83,13 +105,9 @@ allBtns.forEach(btn => {
     })
 })
 
-<<<<<<< Updated upstream
-// startbtn.style.display = 'block'
-=======
 // Game Mechanics
 const boardSquares = document.querySelectorAll('.board-square') //?
 const restartBtn = document.getElementById('restart-btn-id') //?
-const test = document.querySelector('#123') //?
 
 let currentPlayer = currentOption //?
 let allSquares = [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -138,4 +156,3 @@ restartBtn.addEventListener('click', () => {
         square.removeChild()
     })
 })
->>>>>>> Stashed changes
