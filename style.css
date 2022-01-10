@@ -312,6 +312,10 @@ SCORE SECTION
   font-weight: bold;
 }
 
+.current-score-img {
+  height: 20px;
+}
+
 .p1 {
   background-color: var(--clr-player-x-light);
 }
