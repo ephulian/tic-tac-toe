@@ -187,7 +187,7 @@ boardSquares.forEach(square => {
                 alert('x wins');
             }
         }
-        // console.log(availableSquares);
+        console.log(availableSquares);
     })
     
 })
