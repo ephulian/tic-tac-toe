@@ -26,6 +26,14 @@ body {
   text-align: center;
 }
 
+main {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 button {
   border: none;
   margin: 10px 0;
@@ -61,6 +69,10 @@ h1 {
 h2 {
   font-size: 1rem;
   color: var(--clr-font-2);
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 img {
@@ -173,5 +185,142 @@ START GAME ========================================
 .start {
   background-color: rgb(2, 184, 75);
   box-shadow: 5px 5px rgb(3, 109, 45);
-  display: none;
+  /* display: none; */
+  opacity: 0;
+}
+
+/* 
+GAME MODE vs Player =======================================
+Top Section
+*/
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+}
+
+.icons-container {
+  height: 100%;
+  width: 110px;
+  text-align: start;
+}
+
+#top-icon-o {
+  margin-left: -17.5px;
+}
+
+.turn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-tiles);
+  box-shadow: 5px 5px #142128;
+  border-radius: 5px;
+  height: 100%;
+  width: 95px;
+  /* justify-self: center; */
+}
+
+.current-turn-icon {
+  height: 25px;
+  margin-right: 3px;
+}
+
+.restart-btn-container {
+  width: 110px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.restart-btn {
+  height: 100%;
+  width: 45px;
+  background-color: var(--clr-font);
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px var(--clr-font-2);
+}
+
+/* 
+GAME SECTION ==================================
+*/
+
+.board-container {
+  height: 325px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.board-square {
+  background-color: var(--clr-tiles);
+  box-shadow: 5px 5px #142128;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.board-square:active {
+  background-color: #142128;
+}
+
+.board-square-img {
+  padding: 15px;
+  width: 100%;
+}
+
+/* 
+SCORE SECTION
+*/
+
+.score {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 1rem;
+}
+
+.score-tile {
+  height: 65px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.current-score {
+  color: var(--clr-background);
+  font-weight: bold;
+}
+
+.p1 {
+  background-color: var(--clr-player-x-light);
+}
+
+.tie {
+  background-color: var(--clr-font);
+}
+
+.p2 {
+  background-color: var(--clr-player-o-light);
+}
+
+/* 
+BACK TO MENU BUTTON
+*/
+
+.back-to-main {
+  text-decoration: none;
+  color: var(--clr-font);
+  border: 2px solid var(--clr-font);
+  padding: 5px 0;
+  border-radius: 10px;
 }

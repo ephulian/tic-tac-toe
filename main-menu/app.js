@@ -68,9 +68,11 @@ allBtns.forEach(btn => {
 
         if(currentOption && newGameState == 'cpu'){
             startbtnLink.setAttribute('href', '../vsCPU/index.html')
-            startbtn.style.display = 'block'
+            // startbtn.style.display = 'block'
+            startbtn.style.opacity = 1;
         } else if(currentOption && newGameState == 'player') {
-            startbtn.style.display = 'block'
+            // startbtn.style.display = 'block'
+            startbtn.style.opacity = 1;
             startbtnLink.setAttribute('href', '../vsPlayer/index.html')
         }
 
