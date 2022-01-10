@@ -1,3 +1,5 @@
+const body = document.querySelector('body')
+
 const sliderImgX = document.querySelector('#slider-img-x')
 const sliderImgO = document.querySelector('#slider-img-o')
 
@@ -23,6 +25,10 @@ const images = {
     darkGrayX: './Recources/X-darkgray.png',
     darkGrayO: './Recources/O-darkgray.png', 
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    body.style.height = window.innerHeight
+})
 
 // Slider
 sliderOptions.forEach(option => {
