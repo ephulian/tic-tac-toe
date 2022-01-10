@@ -15,9 +15,6 @@ const startbtnLink = document.getElementById('start-btn-link')
 
 const allBtns = document.querySelectorAll('.btn')
 
-const test = document.querySelector('#test') //?
-
-
 let currentOption = 'X'
 let opponentType;
 let newGameState;
@@ -28,14 +25,6 @@ const images = {
     darkGrayX: './Recources/X-darkgray.png',
     darkGrayO: './Recources/O-darkgray.png', 
 }
-
-// window.addEventListener('DOMContentLoaded', () => {
-//     body.style.height = window.innerHeight + 'px'
-//     console.log(body.style);
-//     console.log(window.innerHeight);
-// })
-
-// window.addEventListener('resize', )
 
 function resetHeight(){
     document.body.style.height = window.innerHeight + "px";
@@ -71,7 +60,6 @@ sliderOptions.forEach(option => {
                 sliderOptionO.classList.add('picked-option')
                 sliderOptionO.classList.remove('not-picked-option')
         }
-        console.log(currentOption);
     })
 })
 
@@ -107,7 +95,8 @@ allBtns.forEach(btn => {
 
 // Game Mechanics
 const boardSquares = document.querySelectorAll('.board-square') //?
-const restartBtn = document.getElementById('restart-btn-id') //?
+const restart = document.querySelector('#restart') //?
+const currentTurnIndicator = document.querySelector('#indicator')
 
 let currentPlayer = currentOption //?
 let allSquares = [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -124,6 +113,18 @@ function changePlayer(player){
     }
 }
 
+
+function changeTurnIndicator(state) {
+    if(state == 'X'){
+            currentTurnIndicator.src = '../Recources/X-lightgray.png'
+        } else {
+            currentTurnIndicator.src = '../Recources/O-lightgray.png'
+        }
+}
+
+
+
+// Mark a square
 boardSquares.forEach(square => {
     const markMoveX = document.createElement('img')
     markMoveX.classList.add('board-square-img')
@@ -146,14 +147,25 @@ boardSquares.forEach(square => {
                 }
             }
         
-        console.log(currentPlayer);
-        console.log(availableSquares);
+        changeTurnIndicator(currentPlayer)
+        // console.log(availableSquares);
     })
+    
 })
 
-// restartBtn.addEventListener('click', () => {
-//     boardSquares.forEach(square => {
-//         square.classList.remove('used-square')
-//         square.removeChild()
-//     })
-// })
+// Reset button
+restart.addEventListener('click', () => {
+    currentPlayer = 'X'
+    changeTurnIndicator(currentPlayer)
+
+    boardSquares.forEach(square => {
+        if(square.classList.contains('used-square')){
+            square.classList.remove('used-square')
+        }
+        if(square.firstChild.nextSibling){
+            square.removeChild(square.firstChild.nextSibling)
+        }
+
+    })
+    
+})
