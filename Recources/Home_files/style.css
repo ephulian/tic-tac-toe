@@ -26,33 +26,6 @@ body {
   text-align: center;
 }
 
-button {
-  border: none;
-  margin: 10px 0;
-  padding: 18px 0;
-  border-radius: 18px;
-  font-family: 'Source Code Pro', monospace;
-  font-weight: bold;
-  font-size: 1.125rem;
-  transition: all 0.2s linear;
-  color: var(--clr-background);
-  width: 100%;
-}
-
-a {
-  width: auto;
-  text-decoration: none;
-  /* display: none; */
-}
-
-button:hover {
-  opacity: 0.875;
-}
-
-button:active {
-  box-shadow: none;
-}
-
 h1 {
   font-size: 1.25rem;
   color: var(--clr-font);
@@ -101,7 +74,6 @@ PICK MARK ======================================
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  box-shadow: 5px 5px #142128;
 }
 
 .slider-img-container {
@@ -148,30 +120,4 @@ PICK MARK ======================================
   border-radius: 8px;
   margin: 10px;
   /* opacity: 0; */
-}
-
-/* 
-START GAME ========================================
-*/
-
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 25px;
-}
-
-.new-game-cpu {
-  background-color: var(--clr-player-o-light);
-  box-shadow: 5px 5px var(--clr-player-o-dark);
-}
-
-.new-game-player {
-  background-color: var(--clr-player-x-light);
-  box-shadow: 5px 5px var(--clr-player-x-dark);
-}
-
-.start {
-  background-color: rgb(2, 184, 75);
-  box-shadow: 5px 5px rgb(3, 109, 45);
-  display: none;
 }

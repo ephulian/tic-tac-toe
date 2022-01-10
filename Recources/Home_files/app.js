@@ -6,16 +6,7 @@ const sliderOptions = document.querySelectorAll('.slider-img-container')
 const sliderOptionX = document.getElementById('slider-option-x')
 const sliderOptionO = document.getElementById('slider-option-o')
 
-const newGameCPUbtn = document.getElementById('new-game-cpu-btn')
-const newGamePlayerbtn = document.getElementById('new-game-player-btn')
-const startbtn = document.getElementById('start-btn')
-const startbtnLink = document.getElementById('start-btn-link')
-
-const allBtns = document.querySelectorAll('.btn')
-
-let currentOption = 'X'
-let opponentType;
-let newGameState;
+let currentOption;
 
 const images = {
     lightGrayX: '../Recources/X-lightgray.png',
@@ -23,6 +14,9 @@ const images = {
     darkGrayX: '../Recources/X-darkgray.png',
     darkGrayO: '../Recources/O-darkgray.png', 
 }
+
+// sliderOptionX.classList[1].style.opacity = 0.1 //?
+sliderOptionO.classList //?
 
 // Slider
 sliderOptions.forEach(option => {
@@ -49,36 +43,36 @@ sliderOptions.forEach(option => {
                 sliderOptionO.classList.add('picked-option')
                 sliderOptionO.classList.remove('not-picked-option')
         }
+        e.target.classList.toggle('transition')
         console.log(currentOption);
     })
 })
 
-// New Game Buttons
-allBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
-        if(e.target == newGameCPUbtn){
-            newGameState = 'cpu'
-            newGameCPUbtn.style.background = 'var(--clr-player-o-dark)'
-            newGamePlayerbtn.style.background = 'var(--clr-player-x-light)'
-        } else if (e.target == newGamePlayerbtn){
-            newGameState = 'player'
-            newGameCPUbtn.style.background = 'var(--clr-player-o-light)'
-            newGamePlayerbtn.style.background = 'var(--clr-player-x-dark)'
-        }
-
-        if(currentOption && newGameState == 'cpu'){
-            startbtnLink.setAttribute('href', '../vsCPU/index.html')
-            startbtn.style.display = 'block'
-        } else if(currentOption && newGameState == 'player') {
-            startbtn.style.display = 'block'
-            startbtnLink.setAttribute('href', '../vsPlayer/index.html')
-        }
-
-        // if(currentOption && newGameState){
-        //     startbtn.style.display = 'block'
-        // }
-        console.log(newGameState);
-    })
-})
-
-// startbtn.style.display = 'block'
+// // Slider
+// sliderOptions.forEach(option => {
+//     option.addEventListener('click', e => {
+//         if(e.currentTarget.childNodes[1].classList.contains('slider-img-x')){
+//             currentOption = 'X'
+//         } else if(e.currentTarget.childNodes[1].classList.contains('slider-img-o')){
+//             currentOption = 'O'
+//         }
+//         switch(currentOption){
+//             case 'X':
+//                 sliderImgX.src = images.darkGrayX
+//                 sliderImgO.src = images.lightGrayO
+//                 sliderOptionX.classList.add('picked-option')
+//                 sliderOptionX.classList.remove('not-picked-option')
+//                 sliderOptionO.classList.add('not-picked-option')
+//                 sliderOptionO.classList.remove('picked-option')
+//                 break
+//             case 'O':
+//                 sliderImgX.src = images.lightGrayX
+//                 sliderImgO.src = images.darkGrayO
+//                 sliderOptionX.classList.add('not-picked-option')
+//                 sliderOptionX.classList.remove('picked-option')
+//                 sliderOptionO.classList.add('picked-option')
+//                 sliderOptionO.classList.remove('not-picked-option')
+//         }
+//         console.log(currentOption);
+//     })
+// })
