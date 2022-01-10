@@ -273,7 +273,7 @@ GAME SECTION ==================================
 
 .board-square-img {
   padding: 15px;
-  width: 100%;
+  width: 95%;
 }
 
 /* 
@@ -323,4 +323,7 @@ BACK TO MENU BUTTON
   border: 2px solid var(--clr-font);
   padding: 5px 0;
   border-radius: 10px;
+}
+
+.used-square {
 }

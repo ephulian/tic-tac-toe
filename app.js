@@ -83,4 +83,59 @@ allBtns.forEach(btn => {
     })
 })
 
+<<<<<<< Updated upstream
 // startbtn.style.display = 'block'
+=======
+// Game Mechanics
+const boardSquares = document.querySelectorAll('.board-square') //?
+const restartBtn = document.getElementById('restart-btn-id') //?
+const test = document.querySelector('#123') //?
+
+let currentPlayer = currentOption //?
+let allSquares = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+let availableSquares = Array.from(allSquares) //?
+
+function changePlayer(player){
+    switch(player){
+        case 'X':
+            currentPlayer = 'Y'
+            break
+        case 'Y':
+            currentPlayer = 'X'
+            break
+    }
+}
+
+boardSquares.forEach(square => {
+    const markMoveX = document.createElement('img')
+    markMoveX.classList.add('board-square-img')
+    markMoveX.src = '../Recources/X.png'
+    const markMoveO = document.createElement('img')
+    markMoveO.classList.add('board-square-img')
+    markMoveO.src = '../Recources/O.png'
+    square.addEventListener('click',(e) => {
+        console.log(e.target.id);
+        let clickedSquareID = e.target.id
+        if(!boardSquares[clickedSquareID].classList.contains('used-square')){
+                boardSquares[clickedSquareID].classList.add('used-square')
+                if(currentPlayer == 'X'){
+                    boardSquares[clickedSquareID].appendChild(markMoveX)
+                    changePlayer(currentPlayer)
+                } else if(currentPlayer == 'Y'){
+                    boardSquares[clickedSquareID].appendChild(markMoveO)
+                    changePlayer(currentPlayer)
+                }
+            }
+        
+        console.log(currentPlayer);
+        console.log(availableSquares);
+    })
+})
+
+restartBtn.addEventListener('click', () => {
+    boardSquares.forEach(square => {
+        square.classList.remove('used-square')
+        square.removeChild()
+    })
+})
+>>>>>>> Stashed changes
