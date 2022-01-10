@@ -15,7 +15,18 @@ const startbtnLink = document.getElementById('start-btn-link')
 
 const allBtns = document.querySelectorAll('.btn')
 
-let currentOption = 'X'
+const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
+
+let currentOption = 'x'
 let opponentType;
 let newGameState;
 
@@ -39,12 +50,12 @@ resetHeight();
 sliderOptions.forEach(option => {
     option.addEventListener('click', e => {
         if(e.currentTarget.childNodes[1].classList.contains('slider-img-x')){
-            currentOption = 'X'
+            currentOption = 'x'
         } else if(e.currentTarget.childNodes[1].classList.contains('slider-img-o')){
-            currentOption = 'O'
+            currentOption = 'o'
         }
         switch(currentOption){
-            case 'X':
+            case 'x':
                 sliderImgX.src = images.darkGrayX
                 sliderImgO.src = images.lightGrayO
                 sliderOptionX.classList.add('picked-option')
@@ -52,7 +63,7 @@ sliderOptions.forEach(option => {
                 sliderOptionO.classList.add('not-picked-option')
                 sliderOptionO.classList.remove('picked-option')
                 break
-            case 'O':
+            case 'o':
                 sliderImgX.src = images.lightGrayX
                 sliderImgO.src = images.darkGrayO
                 sliderOptionX.classList.add('not-picked-option')
@@ -104,25 +115,44 @@ let availableSquares = Array.from(allSquares) //?
 
 function changePlayer(player){
     switch(player){
-        case 'X':
-            currentPlayer = 'Y'
+        case 'x':
+            currentPlayer = 'o'
             break
-        case 'Y':
-            currentPlayer = 'X'
+        case 'o':
+            currentPlayer = 'x'
             break
     }
 }
 
-
 function changeTurnIndicator(state) {
-    if(state == 'X'){
+    if(state == 'x'){
             currentTurnIndicator.src = '../Recources/X-lightgray.png'
         } else {
             currentTurnIndicator.src = '../Recources/O-lightgray.png'
         }
 }
 
+function checkWin (arrayOfSquares, state){
+    const x = 'X.png'
+    const o = 'O.png'
 
+    let now;
+
+    switch(state){
+        case 'x':
+            now = 'o'
+            break
+        case 'o':
+            now = 'x'
+    }
+
+    // console.log(state);
+    return winningCombinations.some(combination => {
+        return combination.every(index => {
+            return arrayOfSquares[index].classList.contains(now)
+        })
+    })
+}
 
 // Mark a square
 boardSquares.forEach(square => {
@@ -138,29 +168,48 @@ boardSquares.forEach(square => {
         let clickedSquareID = e.target.id
         if(!boardSquares[clickedSquareID].classList.contains('used-square')){
                 boardSquares[clickedSquareID].classList.add('used-square')
-                if(currentPlayer == 'X'){
+                if(currentPlayer == 'x'){
                     boardSquares[clickedSquareID].appendChild(markMoveX)
+                    boardSquares[clickedSquareID].classList.add('x')
                     changePlayer(currentPlayer)
-                } else if(currentPlayer == 'Y'){
+                } else if(currentPlayer == 'o'){
                     boardSquares[clickedSquareID].appendChild(markMoveO)
+                    boardSquares[clickedSquareID].classList.add('o')
                     changePlayer(currentPlayer)
                 }
             }
         
         changeTurnIndicator(currentPlayer)
+        if(checkWin(boardSquares, currentPlayer)){
+            if(currentPlayer == 'x'){
+                alert('o wins')
+            } else if(currentPlayer = 'o'){
+                alert('x wins');
+            }
+        }
         // console.log(availableSquares);
     })
     
 })
 
+
+
+// document.addEventListener('click', () => {
+//     if(checkWin(boardSquares, currentPlayer)){
+//         console.log(`${currentPlayer} wins`);
+//     }
+// })
+
 // Reset button
 restart.addEventListener('click', () => {
-    currentPlayer = 'X'
+    currentPlayer = 'x'
     changeTurnIndicator(currentPlayer)
 
     boardSquares.forEach(square => {
         if(square.classList.contains('used-square')){
             square.classList.remove('used-square')
+            square.classList.remove('x')
+            square.classList.remove('o')
         }
         if(square.firstChild.nextSibling){
             square.removeChild(square.firstChild.nextSibling)
