@@ -26,9 +26,20 @@ const images = {
     darkGrayO: './Recources/O-darkgray.png', 
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    body.style.height = window.innerHeight
-})
+// window.addEventListener('DOMContentLoaded', () => {
+//     body.style.height = window.innerHeight + 'px'
+//     console.log(body.style);
+//     console.log(window.innerHeight);
+// })
+
+// window.addEventListener('resize', )
+
+function resetHeight(){
+    document.body.style.height = window.innerHeight + "px";
+}
+window.addEventListener("resize", resetHeight);
+
+resetHeight();
 
 // Slider
 sliderOptions.forEach(option => {

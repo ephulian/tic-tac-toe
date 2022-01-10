@@ -18,6 +18,7 @@
 body {
   background-color: #192a32;
   height: 100vh;
+  min-height: -webkit-fill-available;
   /* width: 100vw; */
   display: flex;
   /* flex-direction: column; */
