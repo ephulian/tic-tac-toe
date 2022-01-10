@@ -370,14 +370,6 @@ Win Notification
   font-size: 25px;
 }
 
-#x-wins-next-round {
-  border-radius: 8px;
-  padding: 15px 35px;
-  font-size: 1rem;
-  background-color: var(--clr-player-x-light);
-  box-shadow: 5px 5px var(--clr-player-x-dark);
-}
-
 .o-won {
   position: absolute;
   transform: translate(150%, -100%);
@@ -455,4 +447,12 @@ Win Notification
   font-size: 1rem;
   background-color: var(--clr-player-o-light);
   box-shadow: 5px 5px var(--clr-player-o-dark);
+}
+
+#x-wins-next-round {
+  border-radius: 8px;
+  padding: 15px 35px;
+  font-size: 1rem;
+  background-color: var(--clr-player-x-light);
+  box-shadow: 5px 5px var(--clr-player-x-dark);
 }
