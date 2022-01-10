@@ -18,10 +18,10 @@ let opponentType;
 let newGameState;
 
 const images = {
-    lightGrayX: '../Recources/X-lightgray.png',
-    lightGrayO: '../Recources/O-lightgray.png',
-    darkGrayX: '../Recources/X-darkgray.png',
-    darkGrayO: '../Recources/O-darkgray.png', 
+    lightGrayX: './Recources/X-lightgray.png',
+    lightGrayO: './Recources/O-lightgray.png',
+    darkGrayX: './Recources/X-darkgray.png',
+    darkGrayO: './Recources/O-darkgray.png', 
 }
 
 // Slider
@@ -67,13 +67,13 @@ allBtns.forEach(btn => {
         }
 
         if(currentOption && newGameState == 'cpu'){
-            startbtnLink.setAttribute('href', '../vsCPU/index.html')
+            startbtnLink.setAttribute('href', './vsCPU/index.html')
             // startbtn.style.display = 'block'
             startbtn.style.opacity = 1;
         } else if(currentOption && newGameState == 'player') {
             // startbtn.style.display = 'block'
             startbtn.style.opacity = 1;
-            startbtnLink.setAttribute('href', '../vsPlayer/index.html')
+            startbtnLink.setAttribute('href', './vsPlayer/index.html')
         }
 
         // if(currentOption && newGameState){
