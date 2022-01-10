@@ -39,7 +39,7 @@ function resetHeight(){
 }
 window.addEventListener("resize", resetHeight);
 
-window.addEventListener('DOMContentLoaded', resetHeight)
+window.addEventListener('popstate', resetHeight)
 
 resetHeight();
 
@@ -101,5 +101,7 @@ allBtns.forEach(btn => {
         console.log(newGameState);
     })
 })
+
+
 
 // startbtn.style.display = 'block'
