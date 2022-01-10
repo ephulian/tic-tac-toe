@@ -51,19 +51,53 @@
                 <div id="8" class="board-square">
                 </div>
             </div>
+            <div id="x-wins" class="x-won">
+                <h2>YOU WIN!</h2>
+                <div class="winner-container">
+                    <img src="../Recources/X.png" alt="X">
+                    <h4 class="x-winner-font" >TAKES THE ROUND</h4>
+                </div>
+                <div class="winner-buttons-container">
+                    <a class="quit-link" href="../index.html"><button class="quit">QUIT</button></a>
+                    <button class="next-round">NEXT ROUND</button>
+                </div>
+            </div>
+            <div id="o-wins" class="o-won">
+                <h2>YOU WIN!</h2>
+                <div class="winner-container">
+                    <img src="../Recources/O.png" alt="X">
+                    <h4 class="o-winner-font" >TAKES THE ROUND</h4>
+                </div>
+                <div class="winner-buttons-container">
+                    <a class="quit-link" href="../index.html"><button class="quit">QUIT</button></a>
+                    <button class="next-round">NEXT ROUND</button>
+                </div>
+            </div>
+            <div id="draw" class="draw">
+                <!-- <h2>DRAW</h2> -->
+                <div class="winner-container">
+                    <img src="../Recources/X.png" alt="X">
+                    <h4 class="draw-font" >DRAW</h4>
+                    <img src="../Recources/O.png" alt="">
+                </div>
+                <div class="winner-buttons-container">
+                    <a class="quit-link" href="../index.html"><button class="quit">QUIT</button></a>
+                    <button id="next-round-btn" class="next-round">NEXT ROUND</button>
+                </div>
+            </div>
         </section>
         <section class="section-center score">
             <div class="score-tile p1">
-                <h2 class="score-title current-score">X(P1)</h3>
-                <h3 class="current-score">14</h2>
+                <h2 class="score-title current-score">X</h3>
+                <h3 id="x-score" class="current-score">0</h2>
             </div>
             <div class="score-tile tie">
-                <h2 class="score-title current-score">X(P1)</h3>
-                <h3 class="current-score">14</h2>
+                <h2 class="score-title current-score">DRAW</h3>
+                <h3 id="draw-score" class="current-score">0</h2>
             </div>
             <div class="score-tile p2">
-                <h2 class="score-title current-score">X(P1)</h3>
-                <h3 class="current-score">14</h2>
+                <h2 class="score-title current-score">O</h3>
+                <h3 id="o-score" class="current-score">0</h2>
             </div>
         </section>
         <!-- <h1>PLAYER</h1> -->

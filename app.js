@@ -109,9 +109,27 @@ const boardSquares = document.querySelectorAll('.board-square') //?
 const restart = document.querySelector('#restart') //?
 const currentTurnIndicator = document.querySelector('#indicator')
 
+const xWins = document.querySelector('#x-wins')
+const oWins = document.querySelector('#o-wins')
+const draw = document.querySelector('#draw')
+
+const nextRound = document.querySelectorAll('.next-round')
+
+const xScore = document.querySelector('#x-score')
+const oScore = document.querySelector('#o-score')
+const drawScore = document.querySelector('#draw-score')
+
+// draw.style.transform = "translate(0, -100%)"
+// xWins.style.transform = "translate(0, -100%)"
+// oWins.style.transform = "translate(0, -100%)"
+
 let currentPlayer = currentOption //?
 let allSquares = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 let availableSquares = Array.from(allSquares) //?
+
+let currentScoreX = 0
+let currentScoreO = 0
+let currentScoreDraw = 0
 
 function changePlayer(player){
     switch(player){
@@ -158,62 +176,7 @@ function checkDraw (){
     return Array.from(boardSquares).every(square => square.classList.contains('used-square'))
 }
 
-// Mark a square
-boardSquares.forEach(square => {
-    const markMoveX = document.createElement('img')
-    markMoveX.classList.add('board-square-img')
-    markMoveX.src = '../Recources/X.png'
-
-    const markMoveO = document.createElement('img')
-    markMoveO.classList.add('board-square-img')
-    markMoveO.src = '../Recources/O.png'
-    square.addEventListener('click',(e) => {
-        console.log(e.target.id);
-        let clickedSquareID = e.target.id
-        if(!boardSquares[clickedSquareID].classList.contains('used-square')){
-                boardSquares[clickedSquareID].classList.add('used-square')
-                if(currentPlayer == 'x'){
-                    boardSquares[clickedSquareID].appendChild(markMoveX)
-                    boardSquares[clickedSquareID].classList.add('x')
-                    changePlayer(currentPlayer)
-                } else if(currentPlayer == 'o'){
-                    boardSquares[clickedSquareID].appendChild(markMoveO)
-                    boardSquares[clickedSquareID].classList.add('o')
-                    changePlayer(currentPlayer)
-                }
-            }
-        
-        changeTurnIndicator(currentPlayer)
-
-        if(!checkDraw()){
-            if(checkWin(boardSquares, currentPlayer)){
-                if(currentPlayer == 'x'){
-                    alert('o wins')
-                } else if(currentPlayer = 'o'){
-                    alert('x wins');
-                }
-            }
-        } else {
-            alert('draw')
-        }
-
-        checkDraw()
-        console.log(checkDraw());
-        console.log(availableSquares);
-    })
-    
-})
-
-
-
-// document.addEventListener('click', () => {
-//     if(checkWin(boardSquares, currentPlayer)){
-//         console.log(`${currentPlayer} wins`);
-//     }
-// })
-
-// Reset button
-restart.addEventListener('click', () => {
+function reset(){
     currentPlayer = 'x'
     changeTurnIndicator(currentPlayer)
 
@@ -228,5 +191,85 @@ restart.addEventListener('click', () => {
         }
 
     })
+}
+
+// Mark a square
+boardSquares.forEach(square => {
+    const markMoveX = document.createElement('img')
+    markMoveX.classList.add('board-square-img')
+    markMoveX.src = '../Recources/X.png'
+
+    const markMoveO = document.createElement('img')
+    markMoveO.classList.add('board-square-img')
+    markMoveO.src = '../Recources/O.png'
+    square.addEventListener('click',(e) => {
+        // console.log(e.target.id);
+        let clickedSquareID = e.target.id
+        try {
+            if(!boardSquares[clickedSquareID].classList.contains('used-square')){
+                boardSquares[clickedSquareID].classList.add('used-square')
+                if(currentPlayer == 'x'){
+                    boardSquares[clickedSquareID].appendChild(markMoveX)
+                    boardSquares[clickedSquareID].classList.add('x')
+                    changePlayer(currentPlayer)
+                } else if(currentPlayer == 'o'){
+                    boardSquares[clickedSquareID].appendChild(markMoveO)
+                    boardSquares[clickedSquareID].classList.add('o')
+                    changePlayer(currentPlayer)
+                }
+            }
+        } catch (e){
+
+        }
+        changeTurnIndicator(currentPlayer)
+
+        // Win notification
+
+        if(!checkDraw()){
+            if(checkWin(boardSquares, currentPlayer)){
+                if(currentPlayer == 'x'){
+                    oWins.style.transform = "translate(0, -100%)"
+                    currentScoreO++
+                } else if(currentPlayer = 'o'){
+                    xWins.style.transform = "translate(0, -100%)"
+                    currentScoreX++
+                }
+            }
+        } else if(checkDraw() && checkWin(boardSquares, currentPlayer)){
+            if(currentPlayer == 'x'){
+                    oWins.style.transform = "translate(0, -100%)"
+                    currentScoreO++
+                } else if (currentPlayer = 'o'){
+                    xWins.style.transform = "translate(0, -100%)"
+                    currentScoreX++
+                }
+        } else {
+            draw.style.transform = "translate(0, -100%)"
+            currentScoreDraw++
+        }
+
+        // checkDraw()
+        // console.log(checkDraw());
+        // console.log(availableSquares);
+    })
     
 })
+
+
+
+nextRound.forEach(e => {
+    e.addEventListener('click', () => {
+        draw.style.transform = "translate(150%, -100%)"
+        xWins.style.transform = "translate(150%, -100%)"
+        oWins.style.transform = "translate(150%, -100%)"
+        reset()
+        xScore.textContent = `${currentScoreX}`
+        oScore.innerHTML = `${currentScoreO}`
+        drawScore.innerHTML = `${currentScoreDraw}`
+        console.log(currentScoreX);
+        console.log(currentScoreO);
+        console.log(currentScoreDraw);
+    })
+})
+
+restart.addEventListener('click', () => reset())
