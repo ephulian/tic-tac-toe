@@ -25,7 +25,7 @@ body {
   justify-content: center;
   font-family: 'Source Code Pro', monospace;
   text-align: center;
-  /* z-index: 1; */
+  overflow: hidden;
 }
 
 main {
@@ -349,7 +349,7 @@ Win Notification
 
 .x-won {
   position: absolute;
-  transform: translate(150%, -100%);
+  transform: translate(500%, -100%);
   width: 325px;
   height: 250px;
   display: flex;
@@ -361,7 +361,8 @@ Win Notification
   border: 3px solid var(--clr-player-x-light);
   border-radius: 10px;
   color: var(--clr-player-x-light);
-  transition: all 0.5s linear;
+  /* transition: all 0.5s linear; */
+  transition: all 0.5s ease-in;
   /* display: none; */
 }
 
@@ -372,7 +373,7 @@ Win Notification
 
 .o-won {
   position: absolute;
-  transform: translate(150%, -100%);
+  transform: translate(500%, -100%);
   width: 325px;
   height: 250px;
   display: flex;
@@ -382,7 +383,8 @@ Win Notification
   padding: 25px 0;
   background-color: var(--clr-background);
   color: var(--clr-player-o-light);
-  transition: all 0.5s linear;
+  transition: all 0.5s ease-in;
+  /* transition: all 0.5s linear; */
   border: 3px solid var(--clr-player-o-light);
   border-radius: 10px;
   /* display: none; */
@@ -396,7 +398,8 @@ Win Notification
 
 .draw {
   position: absolute;
-  transform: translate(150%, -100%);
+  transform: translate(500%, -100%);
+  /* z-index: -1; */
   /* transform: translate(0, -100%); */
   width: 325px;
   height: 250px;
@@ -407,11 +410,11 @@ Win Notification
   padding: 25px 0;
   background-color: var(--clr-background);
   color: var(--clr-font);
-  transition: all 0.5s linear;
+  /* transition: all 0.5s linear; */
+  transition: all 0.5s ease-in;
   border: 3px solid var(--clr-font);
   border-radius: 10px;
   /* display: none; */
-  /* z-index: -1; */
 }
 
 .draw-font {

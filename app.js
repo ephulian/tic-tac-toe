@@ -259,9 +259,9 @@ boardSquares.forEach(square => {
 
 nextRound.forEach(e => {
     e.addEventListener('click', () => {
-        draw.style.transform = "translate(150%, -100%)"
-        xWins.style.transform = "translate(150%, -100%)"
-        oWins.style.transform = "translate(150%, -100%)"
+        draw.style.transform = "translate(500%, -100%)"
+        xWins.style.transform = "translate(500%, -100%)"
+        oWins.style.transform = "translate(500%, -100%)"
         reset()
         xScore.textContent = `${currentScoreX}`
         oScore.innerHTML = `${currentScoreO}`
